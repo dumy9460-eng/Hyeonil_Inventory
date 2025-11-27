@@ -1,0 +1,64 @@
+{
+    "items": [
+        {
+            "Name": "낡은 검",
+            "Type": "Weapon",
+            "Description": "오래된 검이지만 쓸만하다.",
+            "AttackBonus": 5,
+            "DefenseBonus": 0,
+            "HPBonus": 0,
+            "CriticalBonus": 2,
+            "IconName": "sword_01"
+        },
+        {
+            "Name": "강철 검",
+            "Type": "Weapon",
+            "Description": "날카롭게 벼려진 강철 검.",
+            "AttackBonus": 10,
+            "DefenseBonus": 0,
+            "HPBonus": 0,
+            "CriticalBonus": 5,
+            "IconName": "sword_02"
+        },
+        {
+            "Name": "가죽 갑옷",
+            "Type": "Armor",
+            "Description": "기본적인 방어구.",
+            "AttackBonus": 0,
+            "DefenseBonus": 8,
+            "HPBonus": 10,
+            "CriticalBonus": 0,
+            "IconName": "armor_01"
+        },
+        {
+            "Name": "판금 갑옷",
+            "Type": "Armor",
+            "Description": "튼튼한 철제 갑옷.",
+            "AttackBonus": 0,
+            "DefenseBonus": 15,
+            "HPBonus": 20,
+            "CriticalBonus": 0,
+            "IconName": "armor_02"
+        },
+        {
+            "Name": "수련자 반지",
+            "Type": "Accessory",
+            "Description": "수련자를 위한 반지.",
+            "AttackBonus": 2,
+            "DefenseBonus": 2,
+            "HPBonus": 5,
+            "CriticalBonus": 3,
+            "IconName": "ring_01"
+        },
+        {
+            "Name": "힘의 반지",
+            "Type": "Accessory",
+            "Description": "착용자의 힘을 증폭시킨다.",
+            "AttackBonus": 5,
+            "DefenseBonus": 0,
+            "HPBonus": 0,
+            "CriticalBonus": 8,
+            "IconName": "ring_02"
+        }
+    ]
+}
