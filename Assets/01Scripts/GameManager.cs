@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // ½Ì±ÛÅæ ÆĞÅÏ
+        // ì‹±ê¸€í†¤ íŒ¨í„´
         if (Instance == null)
         {
             Instance = this;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void SetData()
     {
-        // TODO: ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ ÃÊ±âÈ­
-        // JSON¿¡¼­ µ¥ÀÌÅÍ¸¦ ·ÎµåÇÒ ¿¹Á¤
+        // TODO: í”Œë ˆì´ì–´ ë°ì´í„° ì´ˆê¸°í™”
+        // JSONì—ì„œ ë°ì´í„°ë¥¼ ë¡œë“œí•  ì˜ˆì •
     }
 }
