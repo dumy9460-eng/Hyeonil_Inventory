@@ -23,10 +23,34 @@ public class UIStatus : MonoBehaviour
     // 캐릭터 정보 업데이트
     public void UpdateCharacterInfo(Character character)
     {
-        attackValueText.text = character.TotalAttack.ToString();
-        defenseValueText.text = character.TotalDefense.ToString();
-        hpValueText.text = character.TotalHP.ToString();
-        criticalValueText.text = character.TotalCritical.ToString();
+        if (character == null)
+        {
+            Debug.LogError("Character is null!");
+            return;
+        }
+
+        // 장비 보너스 계산
+        int attackBonus = character.TotalAttack - character.BaseAttack;
+        int defenseBonus = character.TotalDefense - character.BaseDefense;
+        int hpBonus = character.TotalHP - character.BaseHP;
+        int criticalBonus = character.TotalCritical - character.BaseCritical;
+
+        // 스탯 표시 (보너스가 있으면 +표시)
+        attackValueText.text = attackBonus > 0
+            ? $"{character.TotalAttack}"
+            : character.TotalAttack.ToString();
+
+        defenseValueText.text = defenseBonus > 0
+            ? $"{character.TotalDefense}"
+            : character.TotalDefense.ToString();
+
+        hpValueText.text = hpBonus > 0
+            ? $"{character.TotalHP}"
+            : character.TotalHP.ToString();
+
+        criticalValueText.text = criticalBonus > 0
+            ? $"{character.TotalCritical}"
+            : character.TotalCritical.ToString();
     }
 
     private void GoBack()
