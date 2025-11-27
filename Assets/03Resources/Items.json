@@ -1,9 +1,9 @@
 {
     "items": [
         {
-            "Name": "³°Àº °Ë",
+            "Name": "ë‚¡ì€ ê²€",
             "Type": "Weapon",
-            "Description": "¿À·¡µÈ °ËÀÌÁö¸¸ ¾µ¸¸ÇÏ´Ù.",
+            "Description": "ì˜¤ë˜ëœ ê²€ì´ì§€ë§Œ ì“¸ë§Œí•˜ë‹¤.",
             "AttackBonus": 5,
             "DefenseBonus": 0,
             "HPBonus": 0,
@@ -11,9 +11,9 @@
             "IconName": "sword_01"
         },
         {
-            "Name": "°­Ã¶ °Ë",
+            "Name": "ê°•ì²  ê²€",
             "Type": "Weapon",
-            "Description": "³¯Ä«·Ó°Ô º­·ÁÁø °­Ã¶ °Ë.",
+            "Description": "ë‚ ì¹´ë¡­ê²Œ ë²¼ë ¤ì§„ ê°•ì²  ê²€.",
             "AttackBonus": 10,
             "DefenseBonus": 0,
             "HPBonus": 0,
@@ -21,9 +21,9 @@
             "IconName": "sword_02"
         },
         {
-            "Name": "°¡Á× °©¿Ê",
+            "Name": "ê°€ì£½ ê°‘ì˜·",
             "Type": "Armor",
-            "Description": "±âº»ÀûÀÎ ¹æ¾î±¸.",
+            "Description": "ê¸°ë³¸ì ì¸ ë°©ì–´êµ¬.",
             "AttackBonus": 0,
             "DefenseBonus": 8,
             "HPBonus": 10,
@@ -31,9 +31,9 @@
             "IconName": "armor_01"
         },
         {
-            "Name": "ÆÇ±İ °©¿Ê",
+            "Name": "íŒê¸ˆ ê°‘ì˜·",
             "Type": "Armor",
-            "Description": "Æ°Æ°ÇÑ Ã¶Á¦ °©¿Ê.",
+            "Description": "íŠ¼íŠ¼í•œ ì² ì œ ê°‘ì˜·.",
             "AttackBonus": 0,
             "DefenseBonus": 15,
             "HPBonus": 20,
@@ -41,9 +41,9 @@
             "IconName": "armor_02"
         },
         {
-            "Name": "¼ö·ÃÀÚ ¹İÁö",
+            "Name": "ìˆ˜ë ¨ì ë°˜ì§€",
             "Type": "Accessory",
-            "Description": "¼ö·ÃÀÚ¸¦ À§ÇÑ ¹İÁö.",
+            "Description": "ìˆ˜ë ¨ìë¥¼ ìœ„í•œ ë°˜ì§€.",
             "AttackBonus": 2,
             "DefenseBonus": 2,
             "HPBonus": 5,
@@ -51,9 +51,9 @@
             "IconName": "ring_01"
         },
         {
-            "Name": "ÈûÀÇ ¹İÁö",
+            "Name": "í˜ì˜ ë°˜ì§€",
             "Type": "Accessory",
-            "Description": "Âø¿ëÀÚÀÇ ÈûÀ» ÁõÆø½ÃÅ²´Ù.",
+            "Description": "ì°©ìš©ìì˜ í˜ì„ ì¦í­ì‹œí‚¨ë‹¤.",
             "AttackBonus": 5,
             "DefenseBonus": 0,
             "HPBonus": 0,
