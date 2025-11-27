@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
-
-public class Item : MonoBehaviour
+public class Item
 {
     public string Name;
-    public string Type; // "Weapon", "Armor", "Accessory" 등
+    public string Type;
     public string Description;
 
     public int AttackBonus;
@@ -16,7 +12,7 @@ public class Item : MonoBehaviour
     public int HPBonus;
     public int CriticalBonus;
 
-    public string IconName; // 아이콘 스프라이트 이름
+    public string IconName;
 
     // 기본 생성자 (JSON 역직렬화용)
     public Item() { }

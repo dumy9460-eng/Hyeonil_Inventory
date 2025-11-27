@@ -28,11 +28,22 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InitializeGame()
     {
-        // DataManager 로드 대기
+        // DataManager와 UIManager 로드 대기
         yield return new WaitUntil(() => DataManager.Instance != null);
-        yield return null;
+        yield return new WaitUntil(() => UIManager.Instance != null);
+        yield return new WaitForSeconds(0.1f); // 추가 대기
 
         SetData();
+
+        // Player 생성 확인
+        if (Player == null)
+        {
+            Debug.LogError("Player 생성 실패!");
+            yield break;
+        }
+
+        Debug.Log("Player 생성 성공!");
+
         InitializeUI();
     }
 
@@ -41,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         // 캐릭터 생성
         Player = new Character(
-            name: "Chad",
+            name: "chad",
             job: "코딩노예",
             level: 10,
             exp: 9,
@@ -51,7 +62,7 @@ public class GameManager : MonoBehaviour
             defense: 5,
             hp: 100,
             critical: 15,
-            description: "코딩의 노예가 되지 10년째라 되는 미숙입니다. 오늘도 밤샘만 남아서 치킨을 시켜 먹도 모르던는 생각에 대떼릴 키고 잇내요."
+            description: "추워요..."
         );
 
         // JSON에서 아이템 로드

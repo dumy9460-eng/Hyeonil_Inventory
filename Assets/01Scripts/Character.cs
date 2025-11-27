@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
-public class Character : MonoBehaviour
+public class Character
 {
     // 기본 정보
     public string Name { get; private set; }
@@ -126,7 +124,7 @@ public class Character : MonoBehaviour
     {
         Exp -= MaxExp;
         Level++;
-        MaxExp = Level * 10 + 2; // 간단한 레벨업 공식
+        MaxExp = Level * 10 + 2;
 
         // 스탯 증가
         BaseAttack += 2;
@@ -138,12 +136,11 @@ public class Character : MonoBehaviour
     // 장착 가능 여부 확인
     public bool CanEquip(Item item)
     {
-        // 이미 장착 중인 같은 타입의 아이템이 있는지 확인
         foreach (Item equipped in EquippedItems)
         {
             if (equipped.Type == item.Type)
             {
-                return false; // 같은 타입은 1개만 장착 가능
+                return false;
             }
         }
         return true;
