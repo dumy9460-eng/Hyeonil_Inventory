@@ -29,13 +29,24 @@ public class UIMainMenu : MonoBehaviour
     // 캐릭터 정보 업데이트
     public void UpdateCharacterInfo(Character character)
     {
+        if (character == null)
+        {
+            Debug.LogError("Character is null!");
+            return;
+        }
+
         jobText.text = character.Job;
         characterNameText.text = character.Name;
         levelText.text = $"LV {character.Level}";
+
+        // 경험치 표시
         expText.text = $"{character.Exp} / {character.MaxExp}";
-        expBarFill.fillAmount = (float)character.Exp / character.MaxExp;
+        expBarFill.fillAmount = character.MaxExp > 0 ? (float)character.Exp / character.MaxExp : 0f;
+
         descriptionText.text = character.Description;
-        goldText.text = character.Gold.ToString("N0"); // 천 단위 콤마
+
+        // 골드 표시 (천 단위 콤마)
+        goldText.text = character.Gold.ToString("N0");
     }
 
     private void OpenStatus()
