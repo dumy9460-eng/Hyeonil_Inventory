@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // 싱글톤 패턴
         if (Instance == null)
         {
             Instance = this;
@@ -26,6 +23,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(InitializeGame());
+    }
+
+    private IEnumerator InitializeGame()
+    {
+        // DataManager 로드 대기
+        yield return new WaitUntil(() => DataManager.Instance != null);
+        yield return null;
+
         SetData();
         InitializeUI();
     }
@@ -48,55 +54,33 @@ public class GameManager : MonoBehaviour
             description: "코딩의 노예가 되지 10년째라 되는 미숙입니다. 오늘도 밤샘만 남아서 치킨을 시켜 먹도 모르던는 생각에 대떼릴 키고 잇내요."
         );
 
-        // 임시 아이템 추가 (STEP 6에서 JSON으로 대체 예정)
-        AddTemporaryItems();
+        // JSON에서 아이템 로드
+        LoadItemsFromJSON();
     }
 
-    // 임시 아이템 데이터 (테스트용)
-    private void AddTemporaryItems()
+    // JSON에서 아이템 로드 및 추가
+    private void LoadItemsFromJSON()
     {
-        Player.AddItem(new Item(
-            name: "낡은 검",
-            type: "Weapon",
-            description: "오래된 검이지만 쓸만하다.",
-            attack: 5,
-            defense: 0,
-            hp: 0,
-            critical: 2,
-            iconName: "sword_01"
-        ));
-
-        Player.AddItem(new Item(
-            name: "가죽 갑옷",
-            type: "Armor",
-            description: "기본적인 방어구.",
-            attack: 0,
-            defense: 8,
-            hp: 10,
-            critical: 0,
-            iconName: "armor_01"
-        ));
-
-        Player.AddItem(new Item(
-            name: "수련자 반지",
-            type: "Accessory",
-            description: "수련자를 위한 반지.",
-            attack: 2,
-            defense: 2,
-            hp: 5,
-            critical: 3,
-            iconName: "ring_01"
-        ));
-
-        // 기본 아이템들 자동 장착
-        if (Player.Inventory.Count > 0)
+        if (DataManager.Instance == null)
         {
-            Player.Equip(Player.Inventory[0]); // 검 장착
+            Debug.LogError("DataManager가 없습니다!");
+            return;
         }
-        if (Player.Inventory.Count > 1)
-        {
-            Player.Equip(Player.Inventory[1]); // 갑옷 장착
-        }
+
+        // 아이템 3개 추가 (JSON에서 가져오기)
+        Item sword = DataManager.Instance.GetItemByName("낡은 검");
+        Item armor = DataManager.Instance.GetItemByName("가죽 갑옷");
+        Item ring = DataManager.Instance.GetItemByName("수련자 반지");
+
+        if (sword != null) Player.AddItem(sword);
+        if (armor != null) Player.AddItem(armor);
+        if (ring != null) Player.AddItem(ring);
+
+        // 기본 아이템 장착
+        if (Player.Inventory.Count > 0) Player.Equip(Player.Inventory[0]);
+        if (Player.Inventory.Count > 1) Player.Equip(Player.Inventory[1]);
+
+        Debug.Log($"플레이어 인벤토리: {Player.Inventory.Count}개 아이템");
     }
 
     // UI 초기화
@@ -106,16 +90,11 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.MainMenu.UpdateCharacterInfo(Player);
         }
-        else
-        {
-            Debug.LogError("UIManager or MainMenu is null!");
-        }
     }
 
     // 모든 UI 새로고침
     public void RefreshAllUI()
     {
-        // 현재 활성화된 UI 확인 후 업데이트
         if (UIManager.Instance.MainMenu.gameObject.activeSelf)
         {
             UIManager.Instance.MainMenu.UpdateCharacterInfo(Player);
