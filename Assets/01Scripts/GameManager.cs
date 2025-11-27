@@ -30,7 +30,21 @@ public class GameManager : MonoBehaviour
 
     private void SetData()
     {
-        // TODO: 플레이어 데이터 초기화
-        // JSON에서 데이터를 로드할 예정
+        Player = new Character(
+        name: "Chad",
+        job: "코딩노예",
+        level: 10,
+        exp: 9,
+        maxExp: 12,
+        gold: 20000,
+        attack: 35,
+        defense: 40,
+        hp: 100,
+        critical: 25,
+        description: "추워요..."
+    );
+
+        // UI 초기화
+        UIManager.Instance.MainMenu.UpdateCharacterInfo(Player);
     }
 }
