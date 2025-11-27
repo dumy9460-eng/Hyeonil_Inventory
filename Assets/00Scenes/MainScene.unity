@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 76546098}
   - component: {fileID: 76546097}
   - component: {fileID: 76546096}
+  - component: {fileID: 76546100}
   m_Layer: 5
   m_Name: UIStatus
   m_TagString: Untagged
@@ -363,6 +364,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &76546100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76546095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449c48044b453554cbd493b82b3abd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackValueText: {fileID: 2133921503}
+  defenseValueText: {fileID: 1607858151}
+  hpValueText: {fileID: 542199021}
+  criticalValueText: {fileID: 410023169}
+  backButton: {fileID: 1859027841}
 --- !u!1 &162659312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2317,7 @@ GameObject:
   - component: {fileID: 607116805}
   - component: {fileID: 607116804}
   - component: {fileID: 607116803}
+  - component: {fileID: 607116807}
   m_Layer: 5
   m_Name: UIMainMenu
   m_TagString: Untagged
@@ -2394,6 +2413,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &607116807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607116802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8baccdbcb4af7be4a83acdeaf655571a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobText: {fileID: 1639298223}
+  characterNameText: {fileID: 1390191538}
+  levelText: {fileID: 1598191042}
+  expText: {fileID: 1166833588}
+  expBarFill: {fileID: 924504169}
+  descriptionText: {fileID: 1730992208}
+  goldText: {fileID: 1522702087}
+  statusButton: {fileID: 702047803}
+  inventoryButton: {fileID: 1152947683}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2747,6 +2787,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702047801}
   m_CullTransparentMesh: 1
+--- !u!1 &721387076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721387078}
+  - component: {fileID: 721387077}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721387077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721387076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2003818316b5feb4784cd8c256188e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &721387078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721387076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796697492
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3099,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828540635}
   m_CullTransparentMesh: 1
+--- !u!1 &833770157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833770159}
+  - component: {fileID: 833770158}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &833770158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833770157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3a2a53a5c603f4683348fdb2e0b6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiMainMenu: {fileID: 607116802}
+  uiStatus: {fileID: 76546095}
+  uiInventory: {fileID: 1679322104}
+--- !u!4 &833770159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833770157}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &839885317
 GameObject:
   m_ObjectHideFlags: 0
@@ -4475,7 +4606,7 @@ GameObject:
   - component: {fileID: 1166833589}
   - component: {fileID: 1166833588}
   m_Layer: 5
-  m_Name: ExpBarText
+  m_Name: ExpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6511,6 +6642,7 @@ GameObject:
   - component: {fileID: 1679322107}
   - component: {fileID: 1679322106}
   - component: {fileID: 1679322105}
+  - component: {fileID: 1679322109}
   m_Layer: 5
   m_Name: UIInventory
   m_TagString: Untagged
@@ -6606,6 +6738,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1679322109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679322104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a301d6a6b05477a43adf9521620c5385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCountText: {fileID: 162659314}
+  gridContainer: {fileID: 1770620651}
+  slotPrefab: {fileID: 607787743758064430, guid: 8d496f7be1fe75f44bf850d7237147c5, type: 3}
+  backButton: {fileID: 2028099600}
 --- !u!1 &1730992206
 GameObject:
   m_ObjectHideFlags: 0
@@ -8380,3 +8528,5 @@ SceneRoots:
   - {fileID: 1679322108}
   - {fileID: 76546099}
   - {fileID: 950612391}
+  - {fileID: 721387078}
+  - {fileID: 833770159}
