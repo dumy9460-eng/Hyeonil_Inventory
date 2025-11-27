@@ -103,4 +103,49 @@ public class Character : MonoBehaviour
         }
         return bonus;
     }
+
+    // 골드 추가/차감
+    public void AddGold(int amount)
+    {
+        Gold += amount;
+        if (Gold < 0) Gold = 0;
+    }
+
+    // 경험치 추가
+    public void AddExp(int amount)
+    {
+        Exp += amount;
+        while (Exp >= MaxExp)
+        {
+            LevelUp();
+        }
+    }
+
+    // 레벨업
+    private void LevelUp()
+    {
+        Exp -= MaxExp;
+        Level++;
+        MaxExp = Level * 10 + 2; // 간단한 레벨업 공식
+
+        // 스탯 증가
+        BaseAttack += 2;
+        BaseDefense += 1;
+        BaseHP += 5;
+        BaseCritical += 1;
+    }
+
+    // 장착 가능 여부 확인
+    public bool CanEquip(Item item)
+    {
+        // 이미 장착 중인 같은 타입의 아이템이 있는지 확인
+        foreach (Item equipped in EquippedItems)
+        {
+            if (equipped.Type == item.Type)
+            {
+                return false; // 같은 타입은 1개만 장착 가능
+            }
+        }
+        return true;
+    }
 }
