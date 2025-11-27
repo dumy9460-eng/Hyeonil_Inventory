@@ -17,6 +17,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] private Button backButton;
 
     private List<UISlot> slots = new List<UISlot>();
+    private Character currentCharacter;
 
     private void Start()
     {
@@ -29,7 +30,10 @@ public class UIInventory : MonoBehaviour
         // 기존 슬롯 제거
         foreach (UISlot slot in slots)
         {
-            Destroy(slot.gameObject);
+            if (slot != null)
+            {
+                Destroy(slot.gameObject);
+            }
         }
         slots.Clear();
 
@@ -38,20 +42,45 @@ public class UIInventory : MonoBehaviour
         {
             GameObject slotObj = Instantiate(slotPrefab, gridContainer);
             UISlot slot = slotObj.GetComponent<UISlot>();
-            slots.Add(slot);
+
+            if (slot != null)
+            {
+                slots.Add(slot);
+            }
+            else
+            {
+                Debug.LogError("UISlot component not found on prefab!");
+            }
         }
     }
 
     // 인벤토리 업데이트
     public void UpdateInventory(Character character)
     {
+        if (character == null)
+        {
+            Debug.LogError("Character is null!");
+            return;
+        }
+
+        currentCharacter = character;
+
         // 아이템 개수 표시
         itemCountText.text = $"{character.Inventory.Count} / 120";
 
-        // 슬롯이 없으면 초기화
-        if (slots.Count == 0)
+        // 슬롯이 부족하면 생성
+        if (slots.Count < character.Inventory.Count)
         {
-            InitInventoryUI(character.Inventory.Count);
+            int slotsToCreate = character.Inventory.Count - slots.Count;
+            for (int i = 0; i < slotsToCreate; i++)
+            {
+                GameObject slotObj = Instantiate(slotPrefab, gridContainer);
+                UISlot slot = slotObj.GetComponent<UISlot>();
+                if (slot != null)
+                {
+                    slots.Add(slot);
+                }
+            }
         }
 
         // 각 슬롯에 아이템 할당
@@ -65,6 +94,21 @@ public class UIInventory : MonoBehaviour
             else
             {
                 slots[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    // 인벤토리 새로고침 (장착 상태 변경 시)
+    public void RefreshInventory()
+    {
+        if (currentCharacter != null)
+        {
+            foreach (UISlot slot in slots)
+            {
+                if (slot.gameObject.activeSelf)
+                {
+                    slot.RefreshUI();
+                }
             }
         }
     }
